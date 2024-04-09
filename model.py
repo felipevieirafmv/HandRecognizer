@@ -6,7 +6,8 @@ epochs = 100
 batch_size = 8
 patience = 10
 learning_rate = 0.001
-model_path = "checkpoints/model.keras"
+destiny_path = "ds"
+model_path = f"checkpoints/{destiny_path}.keras"
 exists = os.path.exists(model_path)
 
 model = models.load_model(model_path) \
@@ -47,7 +48,7 @@ train = utils.image_dataset_from_directory(
 )
 
 test = utils.image_dataset_from_directory(
-    "ds",
+    destiny_path,
     validation_split= 0.2,
     subset= "validation",
     seed= 123,
